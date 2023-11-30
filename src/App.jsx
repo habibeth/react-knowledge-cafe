@@ -12,9 +12,11 @@ function App() {
 		const newBookmarks = [...bookmarks, blog]
 		setBookmarks(newBookmarks);
 	}
-	const handleMarkAsRead =(time)=>{
+	const handleMarkAsRead =(id, time)=>{
 		const newReadingTime = readingTime + time;
 		setReadingTime(newReadingTime);
+		const remainingBookmarks = bookmarks.filter(bookmark=> bookmark.id !== id);
+		setBookmarks(remainingBookmarks);
 	}
 	return (
 		<div className='max-w-7xl mx-auto'>
